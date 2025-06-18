@@ -67,17 +67,16 @@ const carregarDados = async () => {
 }
 
 const realizarDeposito = async () => {
-  if (deposito.value != null && deposito.value !== '' && Number(deposito.value) > 0) {
-    try {
-      await axios.post('./api/depositar.php', deposito.value)
-      showAlert('success', 'Depósito realizado com sucesso!')
-      await carregarDados()
-    } catch (error) {
-      showAlert('error', 'Erro ao realizar depósito.')
-      console.error(error)
-    }
-  } else {
-    showAlert('error', 'Insira a quantidade de notas para o depósito!')
+  try {
+    const res = await axios.post('./api/depositar.php', deposito.value)
+    console.log(res.data)
+    showAlert(res.data.sucesso ? 'sucesso' : 'error', res.data.mensagem)
+    await carregarDados()
+  } catch (error) {
+    // Tratamento de erro de rede ou exceções
+    const mensagemErro = error.response?.data?.mensagem || 'Erro ao conectar com o servidor.'
+    showAlert('error', 'erro ao realizar o depósito!')
+    console.error(error)
   }
 }
 
@@ -87,6 +86,7 @@ const realizarSaque = async () => {
     try {
       const res = await axios.post('./api/sacar.php', { valor: valorSaque.value })
       showAlert(res.data.sucesso ? 'success' : 'error', res.data.mensagem)
+      console.log(res.data)
       await carregarDados()
     } catch (error) {
       showAlert('error', 'Erro ao realizar saque.')

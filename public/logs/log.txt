@@ -1,0 +1,36 @@
+[18/06/2025 00:47:27] Depósito realizado: 0x R$2, 0x R$5, 0x R$10, 0x R$20, 0x R$50, 0x R$100, 0x R$200
+[18/06/2025 00:51:10] Depósito realizado: 0x R$2, 0x R$5, 0x R$10, 0x R$20, 0x R$50, 0x R$100, 0x R$200
+[18/06/2025 00:58:48] Erro no depósito: Nenhuma cédula válida foi informada.
+[18/06/2025 00:59:50] Erro no depósito: Nenhuma cédula válida foi informada.
+[18/06/2025 00:59:55] Erro no depósito: Nenhuma cédula válida foi informada.
+[18/06/2025 01:00:28] Erro no depósito: Nenhuma cédula válida foi informada.
+[18/06/2025 01:01:17] Erro no depósito: Nenhuma cédula válida foi informada.
+[18/06/2025 01:01:26] Erro no depósito: Nenhuma cédula válida foi informada.
+[18/06/2025 01:01:53] Erro no depósito: Nenhuma cédula válida foi informada.
+[18/06/2025 01:02:06] Erro no depósito: Nenhuma cédula válida foi informada.
+[18/06/2025 01:02:22] Erro no depósito: Nenhuma cédula válida foi informada.
+[18/06/2025 01:03:04] Erro no depósito: Nenhuma cédula válida foi informada.
+[18/06/2025 01:03:22] Erro no depósito: Nenhuma cédula válida foi informada.
+[18/06/2025 01:03:56] Erro no depósito: Nenhuma cédula válida foi informada.
+[18/06/2025 01:05:41] Erro no depósito: Nenhuma cédula válida foi informada.
+[18/06/2025 01:06:31] Erro no depósito: Nenhuma cédula válida foi informada.
+[18/06/2025 01:06:59] Erro no depósito: Nenhuma cédula válida foi informada.
+[18/06/2025 01:08:17] Erro no depósito: Nenhuma cédula válida foi informada.
+[18/06/2025 01:08:52] Erro no depósito: Nenhuma cédula válida foi informada.
+[18/06/2025 01:09:23] Erro no depósito: Nenhuma cédula válida foi informada.
+[18/06/2025 01:09:54] Erro no depósito: Nenhuma cédula válida foi informada.
+[18/06/2025 01:11:02] Erro no depósito: Nenhuma cédula válida foi informada.
+[18/06/2025 22:45:08] Erro no depósito: Nenhuma cédula válida foi informada.
+[18/06/2025 22:45:27] Erro no depósito: Nenhuma cédula válida foi informada.
+[18/06/2025 22:45:45] Erro no depósito: Nenhuma cédula válida foi informada.
+[18/06/2025 22:46:13] Erro no depósito: Nenhuma cédula válida foi informada.
+[18/06/2025 22:46:39] Erro no depósito: Nenhuma cédula válida foi informada.
+[18/06/2025 22:47:26] Erro no depósito: Nenhuma cédula válida foi informada.
+[18/06/2025 22:49:17] Erro no depósito: Nenhuma cédula válida foi informada.
+[18/06/2025 22:49:42] Erro no depósito: Nenhuma cédula válida foi informada.
+[18/06/2025 22:49:47] Erro no depósito: Nenhuma cédula válida foi informada.
+[18/06/2025 22:51:16] Erro no depósito: Nenhuma cédula válida foi informada.
+[18/06/2025 22:53:57] Erro no depósito: Nenhuma cédula válida foi informada.
+[18/06/2025 22:56:49] Erro no depósito: Nenhuma cédula válida foi informada.
+[18/06/2025 22:56:55] Erro no depósito: Nenhuma cédula válida foi informada.
+[18/06/2025 22:57:10] Erro no depósito: Nenhuma cédula válida foi informada.

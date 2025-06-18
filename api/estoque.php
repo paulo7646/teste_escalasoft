@@ -6,4 +6,5 @@ if (!isset($_SESSION['caixa'])) {
     $_SESSION['caixa'] = new Caixa();
 }
 $caixa = $_SESSION['caixa'];
-echo json_encode($caixa->consultarEstoque());
+$response = $caixa->consultarEstoque();
+echo json_encode($response);

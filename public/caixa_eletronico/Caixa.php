@@ -1,6 +1,6 @@
 <?php
 
-require_once 'ICaixaNotificacao.php';
+require_once 'LogNotificacao.php';
 
 class Caixa
 {
@@ -15,16 +15,10 @@ class Caixa
         }
     }
 
-    public function registrarNotificador(ICaixaNotificacao $notificador): void
-    {
-        $this->notificadores[] = $notificador;
-    }
-
     private function notificar(string $mensagem): void
     {
-        foreach ($this->notificadores as $notificador) {
-            $notificador->enviarNotificacao($mensagem);
-        }
+        $notificador = new LogNotificacao();
+        $notificador->enviarNotificacao($mensagem);
     }
 
     public function consultarTotal(): int
@@ -41,23 +35,49 @@ class Caixa
         return $this->estoque;
     }
 
-    public function depositar(array $cedulas): void
+    public function depositar(array $cedulas): array
     {
+        $total = 0;
+        $mensagem = "";
+
+        foreach ($cedulas as $valor => $quantidade) {
+            if (!in_array($valor, $this->denominacoes)) continue;
+            $total += $quantidade;
+        }
+
+        if ($total === 0) {
+            $mensagem = "Erro no depósito: Nenhuma cédula válida foi informada.";
+            $this->notificar($mensagem);
+
+            return [
+                'sucesso' => false,
+                'mensagem' => $mensagem
+            ];
+        }
+
         $mensagem = "Depósito realizado:";
         foreach ($cedulas as $valor => $quantidade) {
             if (!in_array($valor, $this->denominacoes)) continue;
             $this->estoque[$valor] += $quantidade;
             $mensagem .= " {$quantidade}x R\${$valor},";
         }
+
         $mensagem = rtrim($mensagem, ',');
         $this->notificar($mensagem);
+
+        return [
+            'sucesso' => true,
+            'mensagem' => $mensagem
+        ];
     }
 
-    public function sacar(int $valor): void
+    public function sacar(int $valor): array
     {
         if ($valor < min($this->denominacoes)) {
-            echo "Erro: valor mínimo para saque é R\$" . min($this->denominacoes) . "\n";
-            return;
+            return [
+                'sucesso' => false,
+                'mensagem' => "Erro: valor mínimo para saque é R\$" . min($this->denominacoes)
+            ];
         }
 
         $originalValor = $valor;
@@ -68,27 +88,40 @@ class Caixa
                 $this->estoque[$cedula] -= $qtde;
             }
 
-            $mensagem = "Saque realizado: R\${$originalValor}";
-            $this->notificar($mensagem);
+            $mensagem = "Saque de R\${$originalValor} realizado com sucesso.";
+            $detalhes = [];
 
-            echo "Saque de R\${$originalValor} realizado com sucesso:\n";
             foreach ($resultado as $cedula => $qtde) {
-                echo "- {$qtde}x R\${$cedula}\n";
+                $detalhes[] = "{$qtde}x R\${$cedula}";
             }
+
+            $this->notificar($mensagem . ' ' . implode(', ', $detalhes));
+
+            return [
+                'sucesso' => true,
+                'mensagem' => $mensagem,
+                'detalhes' => $detalhes
+            ];
         } else {
             $mensagem = "Erro no saque: Não foi possível montar R\${$originalValor} com as cédulas disponíveis";
             $this->notificar($mensagem);
 
-            echo $mensagem . "\n";
+            $resposta = [
+                'sucesso' => false,
+                'mensagem' => $mensagem
+            ];
 
             $sugestao = $this->sugerirSaqueMaximo($originalValor);
             if ($sugestao > 0) {
-                echo "Sugestão: você pode sacar até R\${$sugestao}\n";
+                $resposta['sugestao'] = "Você pode sacar até R\${$sugestao}";
             } else {
-                echo "Nenhum valor disponível para saque com as cédulas existentes.\n";
+                $resposta['sugestao'] = "Nenhum valor disponível para saque com as cédulas existentes.";
             }
+
+            return $resposta;
         }
     }
+
 
     private function montarSaque(int $valor, array $estoqueBase): array|null
     {

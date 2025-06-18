@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 require_once 'ICaixaNotificacao.php';
 
@@ -8,11 +8,12 @@ class LogNotificacao implements ICaixaNotificacao
 
     public function __construct(string $arquivo = 'log.txt')
     {
-        $diretorio = __DIR__ . '/logs';
+        // Caminho da pasta logs (relativa à raiz do projeto)
+        $diretorio = __DIR__ . '/../logs';
 
-        // Verifica se a pasta logs existe, se não, cria
+        // Cria a pasta se ela não existir
         if (!is_dir($diretorio)) {
-            mkdir($diretorio, 0777, true);
+            mkdir($diretorio, 0777, true); // true para criar diretórios recursivamente
         }
 
         // Define o caminho completo do arquivo
