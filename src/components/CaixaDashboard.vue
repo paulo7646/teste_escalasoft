@@ -3,7 +3,6 @@
     <v-card class="pa-4">
       <v-card-title>Caixa Eletrônico</v-card-title>
       <v-card-text>
-
         <!-- Total -->
         <v-alert type="info">Total disponível: R$ {{ total }}</v-alert>
         <!-- Estoque -->
@@ -21,9 +20,7 @@
             </tr>
           </tbody>
         </v-table>
-
         <v-divider class="my-4" />
-
         <!-- Depósito -->
         <h3>Depósito</h3>
         <v-row>
@@ -96,7 +93,7 @@ const realizarSaque = async () => {
       console.error(error)
     }
   } else {
-    showAlert('error', 'Insira um valor para o deposito !')
+    showAlert('error', 'Insira um valor para o saque !')
   }
 }
 
