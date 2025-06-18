@@ -5,7 +5,7 @@
   "version": "0.0.0",
   "scripts": {
     "dev": "vite",
-    "php": "php -S localhost:8000 -t backend/api",
+    "php": "php -S localhost:8000",
     "dev:full": "concurrently \"pnpm dev\" \"pnpm php\""
   },
   "dependencies": {
