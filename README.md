@@ -77,7 +77,7 @@ pnpm run dev:full
 ## 🛠️ Construído com
 
 * [Vue3] - Usada para suprir o Front-end
-* [Vutify] - O framework usado para suprir o Front-end
+* [Vutify] - O plugin usado para suprir o Front-end
 * [Pnpm] - Gerente de Dependência
 * [PHP] - Usada para suprir o Back-end
 
